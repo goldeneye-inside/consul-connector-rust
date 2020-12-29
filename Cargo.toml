@@ -1,7 +1,19 @@
 [package]
-name = "consul-connector-rust"
-version = "0.1.0"
+name = "geco-consul-connector-rust"
+license = "MIT OR Apache-2.0"
+description = "Library used for connecting to GECO Consul server"
+homepage = "https://goldeneyetech.com.vn"
+documentation = "https://goldeneyetech.com.vn"
+repository = "https://github.com/goldeneye-inside/consul-connector-rust"
+readme = "README.md"
+version = "1.0.0"
 authors = ["Tri Dao <minhtri1396@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+tokio = { version = "0.2.22", features = ["full"] }
+prost = "0.6.1" # Protocol Buffer (gRPC)
+tonic = { version = "0.3.1", features = ["transport", "codegen", "tls"] } # gRPC
+
+[build-dependencies]
+tonic-build = "0.3.1" # Build gRPC
