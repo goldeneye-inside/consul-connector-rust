@@ -4,7 +4,6 @@ use tonic::transport::{Certificate, Channel, ClientTlsConfig};
 
 use rpc::consul_connector_client::ConsulConnectorClient;
 use rpc::{
-    Empty,
     ReqRegisterService,
     ReqGetServiceAddress, RespGetServiceAddress
 };
@@ -56,7 +55,7 @@ impl Connector {
     }
 
     #[allow(dead_code)]
-    pub async fn register_service(&self, host_name: String, service_name: String, service_ip: String, service_port: u32, health_check_url: String) -> Result<(), Box<Error>> {
+    pub async fn register_service(&self, host_name: String, service_name: String, service_ip: String, service_port: u32, health_check_url: String) -> Result<(), Box<dyn Error>> {
         let mut client = match self.connect_channel().await {
             Ok(channel) => ConsulConnectorClient::new(channel),
             Err(e) => return Err(e)
@@ -76,7 +75,7 @@ impl Connector {
     }
 
     #[allow(dead_code)]
-    pub async fn get_service_address(&self, service_name: String) -> Result<String, Box<Error>> {
+    pub async fn get_service_address(&self, service_name: String) -> Result<String, Box<dyn Error>> {
         let mut client = match self.connect_channel().await {
             Ok(channel) => ConsulConnectorClient::new(channel),
             Err(e) => return Err(e)
