@@ -40,9 +40,10 @@ impl Connector {
             Ok(val) => val,
             Err(e) => return Err(Box::new(e))
         };
-        let endpoint = match channel.tls_config(ClientTlsConfig::new().ca_certificate(
-            Certificate::from_pem(self.cert.clone())
-        )) {
+        let tls = ClientTlsConfig::new()
+            .ca_certificate(Certificate::from_pem(self.cert.clone()))
+            .domain_name(self.config.domain.clone());
+        let endpoint = match channel.tls_config(tls) {
             Ok(val) => val,
             Err(e) => return Err(Box::new(e))
         };
