@@ -6,7 +6,7 @@ homepage = "https://goldeneyetech.com.vn"
 documentation = "https://goldeneyetech.com.vn"
 repository = "https://github.com/goldeneye-inside/consul-connector-rust"
 readme = "README.md"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Tri Dao <minhtri1396@gmail.com>"]
 edition = "2018"
 
