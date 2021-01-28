@@ -6,13 +6,13 @@ homepage = "https://goldeneyetech.com.vn"
 documentation = "https://goldeneyetech.com.vn"
 repository = "https://github.com/goldeneye-inside/consul-connector-rust"
 readme = "README.md"
-version = "1.0.1"
+version = "1.1.0"
 authors = ["Tri Dao <minhtri1396@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-prost = "0.6.1" # Protocol Buffer (gRPC)
-tonic = { version = "0.3.1", features = ["transport", "codegen", "tls"] } # gRPC
+prost = "0.7.0" # Protocol Buffer (gRPC)
+tonic = { version = "0.4.0", features = ["transport", "codegen", "tls"] } # gRPC
 
 [build-dependencies]
-tonic-build = "0.3.1" # Build gRPC
+tonic-build = "0.4.0" # Build gRPC
